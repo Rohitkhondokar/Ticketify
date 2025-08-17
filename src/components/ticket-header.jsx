@@ -1,0 +1,144 @@
+"use client";
+
+import { Separator } from "@/components/ui/separator";
+import { BecomeOrganizerModal } from "@/components/become-organizer-modal";
+import Link from "next/link";
+import { Search, ShoppingCart, User, Menu, LogOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+
+export function TicketHeader() {
+  // Dummy user state for demonstration
+  const userLoggedIn = true; // Set to true to simulate a logged-in user
+  const router = useRouter();
+
+  const handleLogout = async () => {};
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-[#00453e] text-white shadow-sm">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+        {/* Logo */}
+        <div className="flex-shrink-0 text-lg font-bold">
+          <Link href="/">E-Ticketing</Link>
+        </div>
+
+        {/* Desktop Navigation & Search */}
+        <nav className="hidden flex-1 items-center justify-center gap-4 lg:gap-6 md:flex">
+          <div className="flex items-center gap-4 lg:gap-6">
+            <Link
+              href="/events"
+              className="text-sm font-medium hover:underline whitespace-nowrap"
+            >
+              Events
+            </Link>
+            <BecomeOrganizerModal>
+              <button className="text-sm font-medium hover:underline whitespace-nowrap">
+                Become an Organizer
+              </button>
+            </BecomeOrganizerModal>
+            <Link
+              href="/about"
+              className="text-sm font-medium hover:underline whitespace-nowrap"
+            >
+              About
+            </Link>
+          </div>
+        </nav>
+
+        {/* Desktop User Actions */}
+        <div className="hidden flex-shrink-0 items-center gap-2 lg:gap-4 md:flex">
+          <Button variant="ghost" size="icon" asChild>
+            <Link href="/user">
+              <User className="h-5 w-5" />
+              <span className="sr-only">Profile</span>
+            </Link>
+          </Button>
+
+          {userLoggedIn ? (
+            <Button onClick={handleLogout} variant="ghost" size="icon">
+              <LogOut className="h-5 w-5" />
+              <span className="sr-only">Logout</span>
+            </Button>
+          ) : (
+            <Button asChild size="sm" className="whitespace-nowrap">
+              <Link href="/login">Login</Link>
+            </Button>
+          )}
+        </div>
+
+        {/* Mobile Menu */}
+        <div className="flex items-center gap-2 md:hidden">
+          <Button variant="ghost" size="icon">
+            <ShoppingCart className="h-5 w-5" />
+            <span className="sr-only">Cart</span>
+          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-64 bg-gray-900 text-white">
+              <div className="flex flex-col gap-4 p-4">
+                <Link
+                  href="/"
+                  className="flex items-center gap-2 text-lg font-bold"
+                >
+                  <span className="text-xl">🎟️</span> Marjii
+                </Link>
+                <Input
+                  type="search"
+                  placeholder="Search events..."
+                  className="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:border-primary focus:ring-primary"
+                />
+                <Link
+                  href="/events"
+                  className="text-sm font-medium hover:underline"
+                >
+                  Events
+                </Link>
+                <BecomeOrganizerModal>
+                  <button className="text-sm font-medium hover:underline text-left">
+                    Become an Organizer
+                  </button>
+                </BecomeOrganizerModal>
+                <Link
+                  href="/about"
+                  className="text-sm font-medium hover:underline"
+                >
+                  About
+                </Link>
+                <Separator className="my-2 bg-gray-700" />
+                <Button variant="ghost" className="justify-start" asChild>
+                  <Link href="/tickets/dashboard">
+                    <User className="mr-2 h-5 w-5" />
+                    Profile
+                  </Link>
+                </Button>
+
+                {userLoggedIn ? (
+                  <Button
+                    onClick={handleLogout}
+                    variant="ghost"
+                    className="justify-start"
+                  >
+                    <LogOut className="mr-2 h-5 w-5" />
+                    Logout
+                  </Button>
+                ) : (
+                  <Button asChild className="justify-start">
+                    <Link href="/login">Login</Link>
+                  </Button>
+                )}
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
+  );
+}
