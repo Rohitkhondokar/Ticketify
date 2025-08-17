@@ -1,8 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Ticketing Platform
+
+A modern multi-vendor ticketing platform built with [Next.js](https://nextjs.org), designed to revolutionize how sports fans connect with their favorite events. E-Ticketing empowers event organizers and vendors to reach passionate audiences, while providing fans with a seamless, secure, and unforgettable ticketing experience.
+
+## Features
+
+- 🏟️ Multi-vendor event management
+- 🎟️ Secure ticket purchasing and delivery
+- 👥 User authentication and role-based access
+- 📊 Admin dashboard for analytics and control
+- 🔒 Robust security and fraud prevention
+- 🌐 Responsive design for all devices
 
 ## Getting Started
 
-First, run the development server:
+To run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +25,34 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+You can start editing the homepage by modifying [`src/app/page.js`](src/app/page.js). The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
+
+- [Next.js](https://nextjs.org) – React framework for production
+- [Prisma](https://www.prisma.io/) – ORM for database management
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
+- [Lucide React](https://lucide.dev/) – Icon library
+- [Vercel](https://vercel.com/) – Deployment platform
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Deploy your Next.js app instantly on [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-## Deploy on Vercel
+For more details, see the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
+
+---
+
+**E-Ticketing** – Connecting fans, empowering organizers, and transforming the event experience.
